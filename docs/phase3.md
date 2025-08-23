@@ -72,6 +72,17 @@ DELETE /api/users/{id}/follow/ to unfollow a user
 GET /api/users/{id}/followers/ to list all followers of a user
 GET /api/users/{id}/following/ to list all users someone is following
 
+Feed
+Show notes from users the current user follows.
+
+Algorithm / Steps
+get current user
+get list of users current user follows
+query notes where author is in that list
+order notes by created_at descending
+apply pagination to results
+return notes as API response
+
 
 
 
