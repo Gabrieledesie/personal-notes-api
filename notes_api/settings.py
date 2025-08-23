@@ -1,10 +1,3 @@
-"""
-Django settings for notes_api project.
-
-I set this up as part of my Personal Notes API project using Django 5.2.4.
-This file controls how Django behaves and which apps are included.
-"""
-
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -63,6 +56,8 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+AUTH_USER_MODEL = 'users.User'
 
 AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
