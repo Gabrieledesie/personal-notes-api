@@ -40,6 +40,37 @@ Step 3: Connect JWT authentication
 - Make sure my API endpoints only allow authenticated users where needed
 
 
+Notes CRUD
+
+Goal: I want users to be able to create, read, update, and delete their notes
+
+Steps I followed
+
+Create a Note model and link it to the User model
+
+Add fields for the note: title, content, created_at, updated_at
+
+
+Make API endpoints so users can: list all notes, create a new note, get a single note, update a note, and delete a note
+
+
+Create a Note model for my app
+Connect the Note model to the User model
+Add fields for title, content, created_at, updated_at
+Build API endpoints to: list all notes, create a note, view a note, update a note, delete a note
+
+Follow/Unfollow
+Users can follow/unfollow others and see followers/following lists.
+
+define a Follow model that links a follower to a user they follow
+make sure the same follower-following pair cannot be duplicated
+add API endpoints for following and unfollowing users
+add API endpoints to view a user’s followers and who they are following
+
+POST /api/users/{id}/follow/ to follow a user
+DELETE /api/users/{id}/follow/ to unfollow a user
+GET /api/users/{id}/followers/ to list all followers of a user
+GET /api/users/{id}/following/ to list all users someone is following
 
 
 
