@@ -4,7 +4,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-e+vk8x8r0t_0$qlqy5rl46^*o9*89$(+zz*22aq*!fwdlf4ks@'
 DEBUG = True
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["yourapp.herokuapp.com"]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -56,6 +56,9 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+import dj_database_url
+DATABASES["default"] = dj_database_url.config(conn_max_age=600, ssl_require=True)
 
 AUTH_USER_MODEL = 'users.User'
 
