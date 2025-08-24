@@ -1,14 +1,35 @@
-class NotesTests(TestCase):
+from django.urls import reverse
+from rest_framework.test import APITestCase, APIClient
+
+class NotesTests(APITestCase):
     def setUp(self):
         self.client = APIClient()
         self.register_url = reverse("register")
         self.login_url = reverse("login")
         self.notes_url = reverse("notes-list")
+        self.refresh_url = reverse("token_refresh")
         self.user_data = {"username": "noteuser", "password": "pass1234"}
         self.client.post(self.register_url, self.user_data)
         login = self.client.post(self.login_url, self.user_data)
         token = login.data["access"]
         self.client.credentials(HTTP_AUTHORIZATION="Bearer " + token)
+
+    def test_register_user(self):
+        data = {"username": "newuser", "password": "newpass123"}
+        response = self.client.post(self.register_url, data)
+        self.assertEqual(response.status_code, 201)
+
+    def test_login_user(self):
+        response = self.client.post(self.login_url, self.user_data)
+        self.assertEqual(response.status_code, 200)
+        self.assertIn("access", response.data)
+
+    def test_refresh_token(self):
+        login = self.client.post(self.login_url, self.user_data)
+        refresh = login.data["refresh"]
+        response = self.client.post(self.refresh_url, {"refresh": refresh})
+        self.assertEqual(response.status_code, 200)
+        self.assertIn("access", response.data)
 
     def test_create_note(self):
         data = {"title": "My Note", "content": "This is a test note"}

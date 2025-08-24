@@ -121,5 +121,11 @@ login first user
 follow second user
 unfollow second user
 
+Feed TESTS And Pseudo Code
+
+create 2 users
+user1 follows user2
+user2 creates a note
+check that user1 can see note in feed
 
 
