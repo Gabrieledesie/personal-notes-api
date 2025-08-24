@@ -114,5 +114,12 @@ test read note
 test update note
 test delete note
 
+Follow/Unfollow Tests And Pseudo Code
+
+create 2 users
+login first user
+follow second user
+unfollow second user
+
 
 
