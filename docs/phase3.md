@@ -83,6 +83,28 @@ order notes by created_at descending
 apply pagination to results
 return notes as API response
 
+Testing
+description of your testing plan
+
+I will create tests to check if my app is working well.
+The tests will be inside tests.py in each app.
+I will test 4 things:
+
+Auth (register, login, refresh token)
+
+Notes (create, read, update, delete)
+
+Follow/Unfollow
+
+Feed endpoint
+
+Authentication Test and Pseudo code
+
+make a test user
+test register endpoint
+test login endpoint
+test token refresh
+
 
 
 
