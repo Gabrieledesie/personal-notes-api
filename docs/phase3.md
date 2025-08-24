@@ -105,6 +105,14 @@ test register endpoint
 test login endpoint
 test token refresh
 
+Notes Test/Pseudo Code
+
+create a user
+login user
+test create note
+test read note
+test update note
+test delete note
 
 
 
