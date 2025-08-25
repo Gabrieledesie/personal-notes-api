@@ -1,10 +1,12 @@
 from pathlib import Path
+import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-e+vk8x8r0t_0$qlqy5rl46^*o9*89$(+zz*22aq*!fwdlf4ks@'
 DEBUG = True
-ALLOWED_HOSTS = ["yourapp.herokuapp.com"]
+
+ALLOWED_HOSTS = ["yourusername.pythonanywhere.com"]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -57,9 +59,6 @@ DATABASES = {
     }
 }
 
-import dj_database_url
-DATABASES["default"] = dj_database_url.config(conn_max_age=600, ssl_require=True)
-
 AUTH_USER_MODEL = 'users.User'
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -74,7 +73,8 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_TZ = True
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / "staticfiles"
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
