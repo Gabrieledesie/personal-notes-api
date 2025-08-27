@@ -3,4 +3,5 @@ from django.db import models
 
 class User(AbstractUser):
     email = models.EmailField(unique=True)
+
     REQUIRED_FIELDS = ['email']
